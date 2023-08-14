@@ -59,10 +59,10 @@ jobs:
             password: ${{ secrets.DOCKERHUB_TOKEN }}
       
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag supriyohub/devsecops:latest
+        run: docker build . --file Dockerfile --tag sanjid369/devsecops21073983:latest
             
       - name: Docker Push
-        run: docker push supriyohub/devsecops:latest
+        run: docker push sanjid369/devsecops21073983:latest
 
  zap_scan:
    needs: build-image-publish-to-dockerhub
