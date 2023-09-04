@@ -5,27 +5,17 @@ jobs:
     timeout-minutes: 120
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - run: mkdir -p ${{ github.workspace }}/artifact
-      - run: echo hello > ${{ github.workspace }}/artifact/world.txt
+    - uses: actions/checkout@v2
 
-      - uses: actions/upload-artifact@v3
+    - name: Upload artifact
+        uses: zoispag/action-s3-upload-artifact@v1
+        id: s3
         with:
-          name: my-artifact
-          path: ${{ github.workspace }}/artifact/world.txt
-      - name: Upload Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: zap_scan
-          path: ${{ github.workspace }}
-      - name: Upload S3    
-        uses: shallwefootball/s3-upload-action@master
-        id: S3
-        with:
-          aws_key_id: ${{secrets.AWS_KEY_ID}}
-          aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: 7com1029
-          source_dir: ${{ github.workspace }}  
-      - name: Link To Report
-        run: echo "https://s3.amazonaws.com/bucketName/${{steps.S3.outputs.object_key}}/"
+          access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          bucket: 7com1029
+          bucket_root: Artifacts
+          path: ./zap_scan
+
+    
+     
