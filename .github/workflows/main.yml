@@ -89,7 +89,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
          name: zap_scan
-         path: 7com1039-security
+         path: 7com1039-security/
     - name: Upload S3    
       uses: shallwefootball/s3-upload-action@master
       id: S3
