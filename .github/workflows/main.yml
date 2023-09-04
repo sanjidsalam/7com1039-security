@@ -81,8 +81,8 @@ jobs:
          target: 'https://www.zaproxy.org'  #replace with your load balancer url
          rules_file_name: '.zap/rules.tsv'
          cmd_options: '-a'
-    - name: Upload Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: ZAP Scan Baseline Report
-          path: 7com1039-security/Result
+#    - name: Upload Report
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: ZAP Scan Baseline Report
+#          path: 7com1039-security/Result
