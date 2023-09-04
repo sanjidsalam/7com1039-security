@@ -16,6 +16,6 @@ spec:
    spec:
     containers:
      - name: spring-boot-app
-       image: supriyohub/devsecops:latest
+       image: sanjid369/devsecops21073983:latest
        ports:
         - containerPort: 8080
