@@ -83,9 +83,9 @@ jobs:
          cmd_options: '-a'
    - name: Upload Report
      uses: actions/upload-artifact@v2
-      with:
-         name: zap_scan
-         path: 7com1039-security/
+     with:
+        name: zap_scan
+        path: 7com1039-security/
    # needs: zap_scan
    # runs-on: ubuntu-latest
     #steps:     
