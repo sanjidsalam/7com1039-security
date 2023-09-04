@@ -98,5 +98,5 @@ jobs:
           aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws_bucket: 7com1029
           source_dir: 7com1039-security   
-     - name: Link To Report
+    - name: Link To Report
        run: echo "https://s3.amazonaws.com/7com1029/${{steps.S3.outputs.object_key}}/"
