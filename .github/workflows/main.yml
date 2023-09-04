@@ -81,7 +81,9 @@ jobs:
          target: 'https://www.zaproxy.org'  #replace with your load balancer url
          rules_file_name: '.zap/rules.tsv'
          cmd_options: '-a'
-         
+  upload:
+    runs-on: ubuntu-latest
+    steps:     
     - name: Upload Report
       uses: actions/upload-artifact@v2
       with:
