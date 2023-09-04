@@ -81,22 +81,24 @@ jobs:
          target: 'https://www.zaproxy.org'  #replace with your load balancer url
          rules_file_name: '.zap/rules.tsv'
          cmd_options: '-a'
- upload_to_s3:
-    needs: zap_scan
-    runs-on: ubuntu-latest
-    steps:     
-    - name: Upload Report
-      uses: actions/upload-artifact@v2
+   - name: Upload Report
+     uses: actions/upload-artifact@v2
       with:
          name: zap_scan
          path: 7com1039-security/
-    - name: Upload S3    
-      uses: shallwefootball/s3-upload-action@master
-      id: S3
-      with:
-          aws_key_id: ${{secrets.AWS_KEY_ID}}
-          aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: 7com1029
-          source_dir: 7com1039-security   
-    - name: Link To Report
-      run: echo "https://s3.amazonaws.com/7com1029/${{steps.S3.outputs.object_key}}/"
+   # needs: zap_scan
+   # runs-on: ubuntu-latest
+    #steps:     
+    
+         
+# upload_to_s3:
+#    - name: Upload S3    
+#      uses: shallwefootball/s3-upload-action@master
+#      id: S3
+#      with:
+#          aws_key_id: ${{secrets.AWS_KEY_ID}}
+#          aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+#          aws_bucket: 7com1029
+#          source_dir: 7com1039-security   
+#    - name: Link To Report
+#      run: echo "https://s3.amazonaws.com/7com1029/${{steps.S3.outputs.object_key}}/"
