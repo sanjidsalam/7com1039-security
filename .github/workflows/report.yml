@@ -7,11 +7,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - run: mkdir -p ${{ github.workspace }}/artifact
+      - run: echo hello > ${{ github.workspace }}/artifact/world.txt
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: ${{ github.workspace }}/artifact/world.txt
       - name: Upload Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: zap_scan
-          path: 7com1039-security/Archieves
+          path: ${{ github.workspace }}
       - name: Upload S3    
         uses: shallwefootball/s3-upload-action@master
         id: S3
@@ -19,6 +26,6 @@ jobs:
           aws_key_id: ${{secrets.AWS_KEY_ID}}
           aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws_bucket: 7com1029
-          source_dir: 7com1039-security/Archieves   
+          source_dir: ${{ github.workspace }}  
       - name: Link To Report
         run: echo "https://s3.amazonaws.com/bucketName/${{steps.S3.outputs.object_key}}/"
