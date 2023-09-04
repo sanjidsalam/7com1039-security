@@ -91,12 +91,12 @@ jobs:
          name: zap_scan
          path: 7com1039-security
     - name: Upload S3    
-        uses: shallwefootball/s3-upload-action@master
-        id: S3
-        with:
+      uses: shallwefootball/s3-upload-action@master
+      id: S3
+      with:
           aws_key_id: ${{secrets.AWS_KEY_ID}}
           aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws_bucket: 7com1029
           source_dir: 7com1039-security   
      - name: Link To Report
-        run: echo "https://s3.amazonaws.com/7com1029/${{steps.S3.outputs.object_key}}/"
+       run: echo "https://s3.amazonaws.com/7com1029/${{steps.S3.outputs.object_key}}/"
