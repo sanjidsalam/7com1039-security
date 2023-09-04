@@ -88,5 +88,5 @@ jobs:
     - name: Upload Report
       uses: actions/upload-artifact@v2
       with:
-         name: ZAP Scan Baseline Report
+         name: zap_scan
          path: 7com1039-security/Result
