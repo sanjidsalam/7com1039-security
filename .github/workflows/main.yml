@@ -82,6 +82,7 @@ jobs:
          rules_file_name: '.zap/rules.tsv'
          cmd_options: '-a'
  upload_to_s3:
+    needs: zap_scan
     runs-on: ubuntu-latest
     steps:     
     - name: Upload Report
