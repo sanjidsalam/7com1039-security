@@ -78,6 +78,6 @@ jobs:
      with:
          token: ${{ secrets.GIT_TOKEN }}
          docker_name: 'owasp/zap2docker-stable'
-         target: 'https://www.zaproxy.org'  #replace with your load balancer url
+         target: 'https://example.com'  #replace with your load balancer url
          rules_file_name: '.zap/rules.tsv'
          cmd_options: '-a'
