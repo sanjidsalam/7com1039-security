@@ -52,7 +52,7 @@ jobs:
  build-image-publish-to-dockerhub:
       needs: sca-scan
       runs-on: ubuntu-latest
-      name: Create a Docker image amd push to DockerHub
+      name: Create a Docker image and push it to DockerHub
       steps:
       - name: Checkout code
         uses: actions/checkout@v4
