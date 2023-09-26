@@ -15,7 +15,7 @@ Step 2: Workflow gets triggered due to push action
 
 Step 3: SAST is performed with SonarCloud
 
-Step 4: SCA is done with Snyk
+Step 4: SCA is done with Snyk 
 
 Step 5: Docker image is built and pushed to DockerHub
 
